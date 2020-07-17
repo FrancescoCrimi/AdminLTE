@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Calendar</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Calendar</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- fullCalendar -->
   <link rel="stylesheet" href="../plugins/fullcalendar/main.min.css">
   <link rel="stylesheet" href="../plugins/fullcalendar-daygrid/main.min.css">
@@ -17,8 +16,6 @@
   <link rel="stylesheet" href="../plugins/fullcalendar-bootstrap/main.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -149,10 +146,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -165,6 +159,18 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -608,7 +614,7 @@
           </li>
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+            <a href="https://adminlte.io/docs/3.0/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Documentation</p>
             </a>
@@ -758,7 +764,6 @@
                 </div>
                 <div class="card-body">
                   <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                    <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
                     <ul class="fc-color-picker" id="color-chooser">
                       <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
                       <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
@@ -803,10 +808,9 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.4
+      <b>Version</b> 3.1.0-pre
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -843,7 +847,7 @@
     function ini_events(ele) {
       ele.each(function () {
 
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+        // create an Event Object (https://fullcalendar.io/docs/event-object)
         // it doesn't need to have a start or end
         var eventObject = {
           title: $.trim($(this).text()) // use the element's text as the event title
@@ -885,7 +889,6 @@
     new Draggable(containerEl, {
       itemSelector: '.external-event',
       eventData: function(eventEl) {
-        console.log(eventEl);
         return {
           title: eventEl.innerText,
           backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
@@ -946,7 +949,7 @@
           title          : 'Click for Google',
           start          : new Date(y, m, 28),
           end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
+          url            : 'https://www.google.com/',
           backgroundColor: '#3c8dbc', //Primary (light-blue)
           borderColor    : '#3c8dbc' //Primary (light-blue)
         }
@@ -959,7 +962,7 @@
           // if so, remove the element from the "Draggable Events" list
           info.draggedEl.parentNode.removeChild(info.draggedEl);
         }
-      }    
+      }
     });
 
     calendar.render();
@@ -967,13 +970,12 @@
 
     /* ADDING EVENTS */
     var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
+    // Color chooser button
     $('#color-chooser > li > a').click(function (e) {
       e.preventDefault()
-      //Save color
+      // Save color
       currColor = $(this).css('color')
-      //Add color effect to button
+      // Add color effect to button
       $('#add-new-event').css({
         'background-color': currColor,
         'border-color'    : currColor
@@ -981,26 +983,26 @@
     })
     $('#add-new-event').click(function (e) {
       e.preventDefault()
-      //Get value and make sure it is not null
+      // Get value and make sure it is not null
       var val = $('#new-event').val()
       if (val.length == 0) {
         return
       }
 
-      //Create events
+      // Create events
       var event = $('<div />')
       event.css({
         'background-color': currColor,
         'border-color'    : currColor,
         'color'           : '#fff'
       }).addClass('external-event')
-      event.html(val)
+      event.text(val)
       $('#external-events').prepend(event)
 
-      //Add draggable funtionality
+      // Add draggable funtionality
       ini_events(event)
 
-      //Remove event from text input
+      // Remove event from text input
       $('#new-event').val('')
     })
   })

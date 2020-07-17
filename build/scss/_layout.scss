@@ -91,11 +91,11 @@ body,
 
   body:not(.layout-fixed).layout-navbar-fixed & {
     .main-sidebar {
-      margin-top: calc(#{$main-header-height} / -1);
+      // margin-top: calc(#{$main-header-height} / -1);
 
-      .sidebar {
-        margin-top: $main-header-height;
-      }
+      // .sidebar {
+      //   margin-top: $main-header-height;
+      // }
     }
   }
 
@@ -301,13 +301,13 @@ body,
       }
 
       body:not(.layout-fixed).layout#{$infix}-navbar-fixed & {
-        .main-sidebar {
-          margin-top: calc(#{$main-header-height} / -1);
+        // .main-sidebar {
+        //   margin-top: calc(#{$main-header-height} / -1);
 
-          .sidebar {
-            margin-top: $main-header-height;
-          }
-        }
+        //   .sidebar {
+        //     margin-top: $main-header-height;
+        //   }
+        // }
       }
 
       body:not(.layout-fixed).layout#{$infix}-navbar-fixed.text-sm & {
@@ -347,9 +347,7 @@ body,
     .control-sidebar {
       bottom: 0;
     }
-  }
 
-  .layout-footer-fixed & {
     .main-footer {
       bottom: 0;
       left: 0;
@@ -376,9 +374,7 @@ body,
         .control-sidebar {
           bottom: 0;
         }
-      }
 
-      .layout#{$infix}-footer-fixed & {
         .main-footer {
           bottom: 0;
           left: 0;
@@ -403,7 +399,7 @@ body,
   .layout-top-nav & {
     margin-left: 0;
 
-    .main-header {    
+    .main-header {
       .brand-image {
         margin-top: -.5rem;
         margin-right: .2rem;
@@ -483,7 +479,7 @@ body:not(.sidebar-mini-md) {
 }
 
 .content-wrapper {
-  background: $main-bg;
+  background-color: $main-bg;
 
   > .content {
     padding: $content-padding-y $content-padding-x;
@@ -577,7 +573,7 @@ body:not(.sidebar-mini-md) {
 }
 
 .main-footer {
-  background: $main-footer-bg;
+  background-color: $main-footer-bg;
   border-top: $main-footer-border-top;
   color: lighten($gray-700, 25%);
   padding: $main-footer-padding;
@@ -605,7 +601,7 @@ body:not(.sidebar-mini-md) {
   }
 
   .breadcrumb {
-    background: transparent;
+    background-color: transparent;
     line-height: 1.8rem;
     margin-bottom: 0;
     padding: 0;
@@ -617,7 +613,6 @@ body:not(.sidebar-mini-md) {
 }
 
 
-
 .hold-transition {
   .content-wrapper,
   .main-header,
@@ -627,5 +622,6 @@ body:not(.sidebar-mini-md) {
   .control-sidebar *,
   .main-footer {
     transition: none !important;
+    animation-duration: 0s !important;
   }
 }
